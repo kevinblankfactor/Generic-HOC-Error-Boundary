@@ -1,3 +1,9 @@
+# Description
+In this project I combined both the Higher Order Components with Error Boundaries React's
+patterns to make a simple and flexible solution for handling UI errors. you could 
+just copy the source code from the repo or download the complete project and start 
+playing around with it.
+
 # Installation
 
 Download or clone the source code, open your terminal in the project directory, 
@@ -31,20 +37,20 @@ Error Boundaries capabilities and wrap the screen/component with this:
 
     export default withErrorBoundary(BuggyCounter);
 
-## Custom Error Screen
+# Custom Error Component/Screen
 
-If you need want to implement a custom error screen, just create it 
+If you need want to implement a custom error component (or screen), just create it 
 and pass it as props through the withErrorBoundary HOC as follows:
 
-    const CustomErrorScreen = () => (
+    const CustomErrorComponent = () => (
       <View>
         <Text>
-          Custom Error Screen
+          Custom Error Component
         </Text>
       </View>
     );
 
-    export default withErrorBoundary(BuggyCounter, CustomErrorScreen);
+    export default withErrorBoundary(BuggyCounter, CustomErrorComponent);
 
 
 ### Demo
