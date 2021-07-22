@@ -52,6 +52,15 @@ and pass it as props through the withErrorBoundary HOC as follows:
 
     export default withErrorBoundary(BuggyCounter, CustomErrorComponent);
 
+### Screenshots
+
+![main](./src/assets/main.png)
+
+![UI custom error component](./src/assets/UIerrorMessage.png)
+
+![UI default error component](./src/assets/defaultUIerrorMessage.png)
+
+![Console error](./src/assets/consoleError.png)
 
 ### Demo
 
