@@ -54,13 +54,17 @@ and pass it as props through the withErrorBoundary HOC as follows:
 
 ### Screenshots
 
-![main](./src/assets/main.png)
+Main
+<img src="./src/assets/main.png" height="500" alt="main" />
 
-![UI custom error component](./src/assets/UIerrorMessage.png)
+UI custom error component
+<img src="./src/assets/UIerrorMessage.png" height="500" alt="UI custom error component" />
 
-![UI default error component](./src/assets/defaultUIerrorMessage.png)
+UI default error component
+<img src="./src/assets/defaultUIerrorMessage.png" height="500" alt="UI default error component" />
 
-![Console error](./src/assets/consoleError.png)
+Console Error
+<img src="./src/assets/consoleError.png" height="500" alt="Console Error" />
 
 ### Demo
 
