@@ -52,7 +52,7 @@ and pass it as props through the withErrorBoundary HOC as follows:
 
     export default withErrorBoundary(BuggyCounter, CustomErrorComponent);
 
-### Screenshots
+# Screenshots
 
 Main
 <br><br>
