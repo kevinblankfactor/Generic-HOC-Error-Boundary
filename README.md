@@ -76,8 +76,10 @@ and pass it as props through the withErrorBoundary HOC as follows:
 
 # References
 
-    https://reactjs.org/docs/error-boundaries.html
+### React's official docs:
 
-    https://reactjs.org/docs/higher-order-components.html
+<a href = "https://reactjs.org/docs/error-boundaries.html">Error Boundaries</a>
+
+<a href = "https://reactjs.org/docs/higher-order-components.html">Higher-Order Components</a>
 
 
