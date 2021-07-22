@@ -28,7 +28,7 @@ const CustomErrorScreen = () => (
       Custom Error Component.
     </Text>
     <Text style={styles.description}>
-      this could be a screen.
+      (this could also be a screen)
     </Text>
   </View>
 );

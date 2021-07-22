@@ -28,20 +28,16 @@ const styles = StyleSheet.create({
     marginHorizontal: '5%',
     marginVertical: '2%',
   },
-  descriptionText: {
-    textAlign: 'center',
-    marginVertical: 10,
-  },
 });
 
 const App = () => (
     <View style={styles.container}>
       <Text style={styles.title}>
-        Testing of Generic Error Boundary Higher Order Component
+        Generic Error Boundary Higher Order Component
       </Text>
       <View style={styles.textContainer}>
         <Text>
-          Click on the numbers to increase the counter.
+          Click on the number to increase the counter.
         </Text>
         <Text>
           The counter is programmed to throw a render error when it reaches 5.
