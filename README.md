@@ -70,9 +70,8 @@ and pass it as props through the withErrorBoundary HOC as follows:
 <br>
 <img src="./src/assets/consoleError.png" height="500" alt="Console Error" />
 
-# Demo
-
-    https://snack.expo.dev/@kevwas/generic-hoc-error-boundary
+<hr/>
+<a href = "https://snack.expo.dev/@kevwas/generic-hoc-error-boundary"><h1>Demo</h1></a>
 
 # References
 
