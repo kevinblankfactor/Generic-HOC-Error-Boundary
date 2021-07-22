@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Text, StyleSheet, Button, View,
 } from 'react-native';
+import CustomErrorComponent from './CustomErrorComponent';
 // Import the Error Boundary Higher Order Component
 import withErrorBoundary from './withErrorBoundary';
 
@@ -10,6 +11,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 24,
+    borderColor: 'gray',
+    borderWidth: 0.5,
+    borderRadius: 10,
   },
   number: {
     margin: 24,
@@ -20,45 +24,32 @@ const styles = StyleSheet.create({
   },
 });
 
-class BuggyCounter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
-    this.handleClick = this.handleClick.bind(this);
-  }
+const BuggyCounter = () => {
+  const [counter, setCounter] = useState(0);
 
-  handleClick() {
-    this.setState(({ counter }) => ({
-      counter: counter + 1,
-    }));
-  }
+  const handleClick = () => {
+    setCounter((prevCounter) => prevCounter + 1);
+  };
 
-  render() {
-    if (this.state.counter === 5) {
-      // Simulate a JS error
-      throw new Error('This is a test error catched by the Error Boundary HOC.');
-    }
-    return (
-      <View style={styles.container}>
-        <Text style={styles.number}>
-          {this.state.counter}
-        </Text>
-        <Button
-          title="Increase counter"
-          onPress={() => this.handleClick()}
-        />
-      </View>
-    );
-  }
-}
-
-const CustomErrorScreen = () => (
-  <View>
-    <Text>
-      Custom Error Screen
-    </Text>
-  </View>
-);
+  return (
+    <View style={styles.container}>
+      {
+        counter === 5
+          && <View>
+            This will cause a Render error, because text
+            strings must be rendered within a Text component
+          </View>
+      }
+      <Text style={styles.number}>
+        {counter}
+      </Text>
+      <Button
+        title="Increase counter"
+        onPress={() => handleClick()}
+      />
+    </View>
+  );
+};
 
 // Wrap the component with the ErrorBoundary HOC and export it
-export default withErrorBoundary(BuggyCounter, CustomErrorScreen);
+export default withErrorBoundary(BuggyCounter, CustomErrorComponent);

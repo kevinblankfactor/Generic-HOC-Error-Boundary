@@ -40,7 +40,15 @@ function withErrorBoundary(WrappedComponent, CustomErrorScreen) {
         // You can render any custom fallback UI
         // And also, this UI could have a navigation option button for returning to another screen
         if (CustomErrorScreen !== undefined) {
-          return <CustomErrorScreen />;
+          return (
+            <View style={styles.container}>
+              <CustomErrorScreen />
+              <Button
+                title="Try again"
+                onPress={() => this.setState({ hasError: false })}
+              />
+            </View>
+          );
         }
         return (
             <View style={styles.container}>
@@ -62,5 +70,4 @@ withErrorBoundary.propTypes = {
   errorScreen: PropTypes.element,
 };
 
-// export { ErrorBoundary };
 export default withErrorBoundary;

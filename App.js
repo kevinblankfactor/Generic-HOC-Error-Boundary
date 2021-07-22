@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Card } from 'react-native-paper';
-
 import BuggyCounter from './src/components/BuggyCounter';
 
 const styles = StyleSheet.create({
@@ -29,6 +28,10 @@ const styles = StyleSheet.create({
     marginHorizontal: '5%',
     marginVertical: '2%',
   },
+  descriptionText: {
+    textAlign: 'center',
+    marginVertical: 10,
+  },
 });
 
 const App = () => (
@@ -38,11 +41,10 @@ const App = () => (
       </Text>
       <View style={styles.textContainer}>
         <Text>
-          Click on the numbers to increase the counters.
+          Click on the numbers to increase the counter.
         </Text>
         <Text>
-          The counter is programmed to throw an error when it reaches 5.
-          This simulates a JavaScript error in a component.
+          The counter is programmed to throw a render error when it reaches 5.
         </Text>
       </View>
       <Card style={styles.card}>

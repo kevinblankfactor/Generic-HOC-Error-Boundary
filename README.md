@@ -2,7 +2,7 @@
 
 Download or clone the source code, open your terminal in the project directory, 
 do ***npm install*** (or ***yarn install***). Then, go to the ***ios*** folder 
-(type ***cd ios*** in your terminal when already on the root directory) an do
+(type ***cd ios*** in your terminal when already on the root directory) and do
 ***pod install*** (you must have xcode installed from the App Store). Finally, 
 go back to the root directory of the project (type ***cd ..***) and type 
 ***npm run ios*** in your terminal. If you did well, the Metro bundler will 
