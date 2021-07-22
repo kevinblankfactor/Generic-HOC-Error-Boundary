@@ -10,7 +10,7 @@ Error Boundaries capabilities and wrap the screen/component with this:
 
     export default withErrorBoundary(BuggyCounter);
 
-# Custom Error Screen
+## Custom Error Screen
 
 If you need want to implement a custom error screen, just create it 
 and pass it as props through the withErrorBoundary HOC as follows:
