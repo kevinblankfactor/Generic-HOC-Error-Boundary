@@ -1,8 +1,8 @@
 # Description
-In this project I combined both the 
+**withErrorBoundary.js** is the result of combining both the 
 <a href = "https://reactjs.org/docs/higher-order-components.html">Higher-Order Components</a> 
 with <a href = "https://reactjs.org/docs/error-boundaries.html">Error Boundaries</a> React's
-patterns to make a simple and flexible solution for handling UI errors. you could 
+patterns to make a simple and flexible solution for handling UI errors. You could 
 just copy the source code from the repo or download the complete project and start 
 playing around with it.
 
