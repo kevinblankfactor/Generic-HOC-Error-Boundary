@@ -146,9 +146,9 @@ and pass it as props through the **withErrorBoundary** HOC as follows:
         }
 
         // static componentDidCatch(error, errorInfo) {
-        // You can also log the error to an error reporting service
-        // logErrorToMyService(error, errorInfo);
-        // Also, you could use navigation if an error is catched and go to another screen.
+          // You can also log the error to an error reporting service
+          // logErrorToMyService(error, errorInfo);
+          // Also, you could use navigation if an error is catched and go to another screen.
         // }
 
         render() {
