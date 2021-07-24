@@ -39,7 +39,7 @@ Error Boundaries capabilities and wrap the screen/component with this:
 
     export default withErrorBoundary(BuggyCounter);
 
-The BuggyCounter.js is programmed to throw a render error when it reaches 5.
+**BuggyCounter** is programmed to throw a render error when it reaches 5.
 
     import React, { useState } from 'react';
     import {
