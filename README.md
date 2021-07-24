@@ -100,7 +100,7 @@ Error Boundaries capabilities and wrap the screen/component with this:
 # Custom Error Component/Screen
 
 If you need to implement a custom error component (or screen), just create it 
-and pass it as props through the withErrorBoundary HOC as follows:
+and pass it as props through the **withErrorBoundary** HOC as follows:
 
     const CustomErrorComponent = () => (
       <View>
