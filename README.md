@@ -30,7 +30,7 @@ app and run it.
 # Usage
 
 Import the **withErrorBoundary** HOC in the screen/component you want to add the
-Error Boundaries capabilities and wrap the screen/component with this:
+Error Boundaries capabilities and wrap the screen/component with it.
 
     // BuggyCounter.js
     import withErrorBoundary from './withErrorBoundary';
