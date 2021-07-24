@@ -39,6 +39,64 @@ Error Boundaries capabilities and wrap the screen/component with this:
 
     export default withErrorBoundary(BuggyCounter);
 
+The BuggyCounter.js is programmed to throw a render error when it reaches 5.
+
+    import React, { useState } from 'react';
+    import {
+      Text, StyleSheet, Button, View,
+    } from 'react-native';
+    import CustomErrorComponent from './CustomErrorComponent';
+    // Import the Error Boundary Higher Order Component
+    import withErrorBoundary from './withErrorBoundary';
+
+    const styles = StyleSheet.create({
+      container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 24,
+        borderColor: 'gray',
+        borderWidth: 0.5,
+        borderRadius: 10,
+      },
+      number: {
+        margin: 24,
+        marginTop: 0,
+        fontSize: 25,
+        fontWeight: 'bold',
+        textAlign: 'center',
+      },
+    });
+
+    const BuggyCounter = () => {
+      const [counter, setCounter] = useState(0);
+
+      const handleClick = () => {
+        setCounter((prevCounter) => prevCounter + 1);
+      };
+
+      return (
+        <View style={styles.container}>
+          {
+            counter === 5
+              && <View>
+                This will cause a Render error, because text
+                strings must be rendered within a Text component
+              </View>
+          }
+          <Text style={styles.number}>
+            {counter}
+          </Text>
+          <Button
+            title="Increase counter"
+            onPress={() => handleClick()}
+          />
+        </View>
+      );
+    };
+
+    // Wrap the component with the ErrorBoundary HOC and export it
+    export default withErrorBoundary(BuggyCounter, CustomErrorComponent);
+
 # Custom Error Component/Screen
 
 If you need to implement a custom error component (or screen), just create it 
@@ -53,6 +111,82 @@ and pass it as props through the withErrorBoundary HOC as follows:
     );
 
     export default withErrorBoundary(BuggyCounter, CustomErrorComponent);
+
+# Core: withErrorBoundary.js
+
+    import React from 'react';
+    import {
+      Text, View, Button, StyleSheet,
+    } from 'react-native';
+    import PropTypes from 'prop-types';
+
+    const styles = StyleSheet.create({
+      container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '3%',
+      },
+      text: {
+        color: 'red',
+        fontSize: 15,
+        fontWeight: 'bold',
+      },
+    });
+
+    function withErrorBoundary(WrappedComponent, CustomErrorScreen) {
+      return class ErrorBoundary extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { hasError: false };
+        }
+
+        static getDerivedStateFromError() {
+          // Update state so the next render will show the fallback UI.
+          return { hasError: true };
+        }
+
+        // static componentDidCatch(error, errorInfo) {
+        // You can also log the error to an error reporting service
+        // logErrorToMyService(error, errorInfo);
+        // Also, you could use navigation if an error is catched and go to another screen.
+        // }
+
+        render() {
+          if (this.state.hasError) {
+            // You can render any custom fallback UI
+            // And also, this UI could have a navigation option button for returning to another screen
+            if (CustomErrorScreen !== undefined) {
+              return (
+                <View style={styles.container}>
+                  <CustomErrorScreen />
+                  <Button
+                    title="Try again"
+                    onPress={() => this.setState({ hasError: false })}
+                  />
+                </View>
+              );
+            }
+            return (
+                <View style={styles.container}>
+                  <Text style={styles.text}>Something went wrong with this component.</Text>
+                  <Button
+                    title="Try again"
+                    onPress={() => this.setState({ hasError: false })}
+                  />
+                </View>
+            );
+          }
+
+          // If everything works as expected, then, returns the wrapped screen/component
+          return <WrappedComponent />;
+        }
+      };
+    }
+    withErrorBoundary.propTypes = {
+      errorScreen: PropTypes.element,
+    };
+
+    export default withErrorBoundary;
 
 # Screenshots
 
