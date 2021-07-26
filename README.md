@@ -104,7 +104,7 @@ export default withErrorBoundary(BuggyCounter, CustomErrorComponent);
 
 # Custom Error Component/Screen
 
-If you need to implement a custom error component (or screen), just create it 
+If you need to implement a custom fallback error component (or screen), just create it 
 and pass it as props through the **withErrorBoundary** HOC as follows:
     
 ```js
